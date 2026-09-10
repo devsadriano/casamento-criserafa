@@ -777,15 +777,16 @@ async function confirmarPresente() {
 .presente-valor { font-size: 1.15rem; color: var(--rose-gold-dark); font-family: var(--font-serif); font-weight: 600; margin-bottom: 14px; }
 .presente-reservado { text-align: center; color: var(--text-light); font-size: 0.82rem; padding: 8px; background: var(--champagne); border-radius: var(--radius-sm); }
 .presente-btn {
-  width: 100%; padding: 10px; background: linear-gradient(135deg, var(--rose-gold-dark), var(--rose-gold));
+  width: 100%; padding: 10px;
+  background: linear-gradient(135deg, var(--sun-600), var(--sun-500));
   color: white; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 500;
   transition: var(--transition); cursor: pointer;
 }
-.presente-btn:hover { box-shadow: 0 6px 16px rgba(201,150,125,0.4); }
+.presente-btn:hover { box-shadow: var(--shadow-gold); }
 
 /* ─── Galeria ───────────────────── */
 .galeria-section {
-  background: linear-gradient(160deg, var(--warm-darker) 0%, #2d2010 50%, var(--warm-dark) 100%);
+  background: linear-gradient(160deg, #1c1c1c 0%, #242424 50%, #1a1a1a 100%);
   padding: 100px 24px;
   position: relative; overflow: hidden;
 }
@@ -888,7 +889,7 @@ async function confirmarPresente() {
 
 /* ─── Footer ────────────────────── */
 .footer {
-  background: linear-gradient(160deg, var(--warm-darker), #2a1e0e);
+  background: linear-gradient(160deg, #1c1c1c, #222222);
   padding: 60px 24px;
   text-align: center;
   border-top: 2px solid rgba(232, 184, 75, 0.2);
