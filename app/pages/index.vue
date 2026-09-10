@@ -774,7 +774,7 @@ async function confirmarPresente() {
 .presente-body { padding: 20px; }
 .presente-cat  { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rose-gold); margin-bottom: 6px; }
 .presente-nome { font-family: var(--font-serif); font-size: 1.1rem; color: var(--text-dark); margin-bottom: 8px; font-weight: 500; }
-.presente-valor { font-size: 1.15rem; color: var(--rose-gold-dark); font-family: var(--font-serif); font-weight: 600; margin-bottom: 14px; }
+.presente-valor { font-size: 1.15rem; color: var(--rose-gold-dark); font-family: var(--font-serif); font-weight: 600; margin-bottom: 14px; font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "lnum" 1, "tnum" 1; line-height: 1.2; letter-spacing: 0.02em; }
 .presente-reservado { text-align: center; color: var(--text-light); font-size: 0.82rem; padding: 8px; background: var(--champagne); border-radius: var(--radius-sm); }
 .presente-btn {
   width: 100%; padding: 10px;
@@ -937,7 +937,7 @@ async function confirmarPresente() {
 .modal-gift-img { width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); }
 .modal-gift-placeholder { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 5rem; background: var(--champagne); border-radius: var(--radius-md); }
 .modal-gift-name { font-size: 1.3rem; color: var(--text-dark); font-weight: 500; }
-.modal-gift-price { font-size: 1.5rem; color: var(--rose-gold-dark); font-family: var(--font-serif); font-weight: 600; }
+.modal-gift-price { font-size: 1.5rem; color: var(--rose-gold-dark); font-family: var(--font-serif); font-weight: 600; font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "lnum" 1, "tnum" 1; line-height: 1.2; letter-spacing: 0.02em; }
 .modal-gift-msg { font-size: 0.78rem; color: var(--text-light); line-height: 1.6; text-align: center; }
 .modal-btn-pay {
   padding: 14px; width: 100%;

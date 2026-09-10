@@ -280,7 +280,7 @@ function formatMoney(v: number) {
 .presente-info { padding: 14px 16px; }
 .presente-cat  { font-size: 0.7rem; color: var(--rose-gold-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
 .presente-nome { font-size: 0.95rem; font-weight: 600; color: var(--admin-text); margin-bottom: 4px; }
-.presente-valor{ font-size: 1rem; color: var(--rose-gold-light); font-family: var(--font-serif); font-weight: 600; }
+.presente-valor{ font-size: 1rem; color: var(--rose-gold-light); font-family: var(--font-serif); font-weight: 600; font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "lnum" 1, "tnum" 1; }
 .presente-desc { font-size: 0.75rem; color: var(--admin-text-light); margin-top: 6px; line-height: 1.5; }
 
 .presente-actions {
