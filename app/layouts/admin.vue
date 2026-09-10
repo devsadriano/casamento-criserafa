@@ -4,6 +4,8 @@
     <div class="admin-main">
       <AdminTopbar />
       <main class="admin-content">
+        <!-- Decoração sutil de girassol no admin -->
+        <div class="admin-sunflower-deco" aria-hidden="true">🌻</div>
         <slot />
       </main>
     </div>
@@ -34,6 +36,19 @@ import AdminTopbar from '~/components/admin/AdminTopbar.vue'
   flex: 1;
   padding: 32px;
   overflow-y: auto;
+  position: relative;
+}
+.admin-sunflower-deco {
+  position: fixed;
+  right: -60px;
+  bottom: -60px;
+  font-size: 18rem;
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(-20deg);
+  line-height: 1;
+  user-select: none;
 }
 @media (max-width: 768px) {
   .admin-content { padding: 16px; }

@@ -45,7 +45,7 @@
           Rafael
         </h1>
         <div class="hero-divider"></div>
-        <p class="hero-date">12 · IV · 2025</p>
+        <p class="hero-date">19 · VI · 2027</p>
       </div>
       <div class="hero-scroll">Rolar ↓</div>
     </section>
@@ -103,30 +103,28 @@
         <span class="section-tag">✦ Detalhes</span>
         <h2 class="section-title font-script">O Grande Dia</h2>
         <div class="section-divider"><span class="section-divider-icon">🕊️</span></div>
-        <p class="evento-date">Sábado, 12 de Abril de 2025 · São Paulo, SP</p>
+        <p class="evento-date">Sábado, 19 de Junho de 2027 · 17h30</p>
       </div>
       <div class="evento-grid">
         <div class="evento-card reveal">
           <div class="evento-icon">⛪</div>
           <div class="evento-type">Cerimônia</div>
-          <h3 class="evento-title font-serif">Igreja Nossa Senhora<br>da Consolação</h3>
+          <h3 class="evento-title font-serif">Igreja Siríaca<br>de São Jorge</h3>
           <div class="evento-info">
-            <div class="evento-info-item"><span>🕐</span><span><strong>17h00</strong> — Horário de chegada: 16h40</span></div>
-            <div class="evento-info-item"><span>📍</span><span>Rua da Consolação, 585<br>Consolação — São Paulo/SP</span></div>
-            <div class="evento-info-item"><span>👔</span><span>Traje: Passeio Completo</span></div>
+            <div class="evento-info-item"><span>🕐</span><span><strong>17h30</strong> — Horário de chegada: 17h15</span></div>
+            <div class="evento-info-item"><span>📍</span><span>Rua 14 de Julho, 1.060<br>Centro</span></div>
           </div>
-          <a href="https://maps.google.com/?q=Igreja+Nossa+Senhora+da+Consolacao+Sao+Paulo" target="_blank" class="evento-map-btn">🗺️ Ver no Mapa</a>
+          <a href="https://maps.google.com/?q=Rua+14+de+Julho+1060+Centro" target="_blank" class="evento-map-btn">🗺️ Ver no Mapa</a>
         </div>
         <div class="evento-card reveal">
-          <div class="evento-icon">🥂</div>
-          <div class="evento-type">Recepção</div>
-          <h3 class="evento-title font-serif">Villa Grano<br>Espaço de Festas</h3>
+          <div class="evento-icon">🌻</div>
+          <div class="evento-type">Festa</div>
+          <h3 class="evento-title font-serif">Tullipa'z Festas<br>e Eventos</h3>
           <div class="evento-info">
-            <div class="evento-info-item"><span>🕐</span><span><strong>19h30</strong> — Início do coquetel</span></div>
-            <div class="evento-info-item"><span>📍</span><span>Av. Paulista, 2073<br>Bela Vista — São Paulo/SP</span></div>
             <div class="evento-info-item"><span>🍽️</span><span>Jantar, bolo e muita dança!</span></div>
+            <div class="evento-info-item"><span>📍</span><span>Av. Pres. Castelo Branco, 617<br>Monte Castelo</span></div>
           </div>
-          <a href="https://maps.google.com/?q=Villa+Grano+Espaco+Festas+Sao+Paulo" target="_blank" class="evento-map-btn">🗺️ Ver no Mapa</a>
+          <a href="https://maps.google.com/?q=Av.+Pres.+Castelo+Branco+617+Monte+Castelo" target="_blank" class="evento-map-btn">🗺️ Ver no Mapa</a>
         </div>
       </div>
     </section>
@@ -137,7 +135,7 @@
         <span class="section-tag">✦ Lista de Presentes</span>
         <h2 class="section-title font-script">Presentear o Casal</h2>
         <div class="section-divider"><span class="section-divider-icon">🎁</span></div>
-        <p class="section-sub">Sua presença já é o maior presente! Mas se quiser nos mimar, preparamos uma lista especial com muito carinho. 💝</p>
+        <p class="section-sub">Sua presença é o presente mais importante para nós! Mas se quiser nos mimar com algo especial, preparamos uma lista com muito carinho. 💝</p>
       </div>
       <div class="presentes-filters">
         <button v-for="cat in categorias" :key="cat" class="filter-btn" :class="{ active: catAtiva === cat }" @click="catAtiva = cat">
@@ -300,7 +298,7 @@
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-names font-script">Cristina & Rafael</div>
-      <div class="footer-date">12 · IV · 2025 · São Paulo</div>
+      <div class="footer-date">19 · VI · 2027</div>
       <nav class="footer-links">
         <a href="#historia">Nossa História</a>
         <a href="#evento">O Evento</a>
@@ -349,11 +347,11 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'Cristina & Rafael — 12 de Abril de 2025 💍',
+  title: 'Cristina & Rafael — 19 de Junho de 2027 💍',
   meta: [
-    { name: 'description', content: 'Estamos nos casando! Venha celebrar este momento especial conosco. Confira os detalhes, nossa história e lista de presentes.' },
+    { name: 'description', content: 'Estamos nos casando! Venha celebrar este momento especial conosco. Sua presença é o presente mais importante para nós!' },
     { property: 'og:title', content: 'Cristina & Rafael — Nosso Casamento' },
-    { property: 'og:description', content: '12 de Abril de 2025 · São Paulo · Venha celebrar com a gente!' },
+    { property: 'og:description', content: '19 de Junho de 2027 · Venha celebrar com a gente!' },
     { property: 'og:type', content: 'website' },
   ],
 })
@@ -427,7 +425,7 @@ onMounted(() => {
 
 // ─── Countdown ───────────────────────────────────────
 function startCountdown() {
-  const target = new Date('2025-04-12T17:00:00').getTime()
+  const target = new Date('2027-06-19T17:30:00').getTime()
   function tick() {
     const diff = target - Date.now()
     if (diff <= 0) {
@@ -528,28 +526,28 @@ async function confirmarPresente() {
   transition: var(--transition-slow);
 }
 .navbar.scrolled {
-  background: rgba(250,247,244,0.95);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 2px 20px rgba(139,90,60,0.08);
+  background: rgba(253, 251, 245, 0.96);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 2px 24px rgba(139, 110, 40, 0.10);
+  border-bottom: 1px solid var(--border-gold);
 }
 .navbar-brand {
   font-size: 1.8rem;
-  color: var(--white);
+  color: var(--gold-medium);
   transition: color 0.3s;
   text-decoration: none;
 }
-.navbar.scrolled .navbar-brand { color: var(--rose-gold-dark); }
+.navbar.scrolled .navbar-brand { color: var(--gold); }
 
 .navbar-links {
   display: flex; align-items: center; gap: 32px; list-style: none;
 }
 .navbar-links a {
-  font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em;
-  text-transform: uppercase; color: rgba(255,255,255,0.85);
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text-medium);
   transition: var(--transition); text-decoration: none;
 }
-.navbar.scrolled .navbar-links a { color: var(--text-medium); }
-.navbar-links a:hover { color: var(--rose-gold); }
+.navbar-links a:hover { color: var(--gold); }
 
 .navbar-menu-btn {
   display: none; flex-direction: column; gap: 5px;
@@ -557,66 +555,94 @@ async function confirmarPresente() {
 }
 .navbar-menu-btn span {
   display: block; width: 24px; height: 2px;
-  background: white; border-radius: 2px; transition: var(--transition);
+  background: var(--text-medium); border-radius: 2px; transition: var(--transition);
 }
-.navbar.scrolled .navbar-menu-btn span { background: var(--text-medium); }
 
 .mobile-nav {
-  position: fixed; inset: 0; background: rgba(26,17,8,0.98);
+  position: fixed; inset: 0;
+  background: rgba(253, 251, 245, 0.98);
   backdrop-filter: blur(20px); z-index: 499;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 28px; transform: translateX(100%); transition: var(--transition-slow);
 }
 .mobile-nav.open { transform: translateX(0); }
 .mobile-nav a {
-  font-size: 1.5rem; font-family: var(--font-serif); color: rgba(255,255,255,0.8);
+  font-size: 1.5rem; font-family: var(--font-serif); color: var(--text-dark);
   text-decoration: none; transition: var(--transition); letter-spacing: 0.05em;
 }
-.mobile-nav a:hover { color: var(--rose-gold-light); }
+.mobile-nav a:hover { color: var(--gold); }
 .mobile-nav-close {
   position: absolute; top: 24px; right: 28px;
-  font-size: 1.5rem; color: rgba(255,255,255,0.4); transition: var(--transition);
+  font-size: 1.5rem; color: var(--text-light); transition: var(--transition);
 }
-.mobile-nav-close:hover { color: var(--white); }
+.mobile-nav-close:hover { color: var(--text-dark); }
 
 /* ─── Hero ──────────────────────── */
 .hero {
   position: relative; height: 100vh; min-height: 600px;
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
+  background: transparent;
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, #1a1108 0%, #2d1a0d 40%, #1a1108 100%);
+  background: transparent;
 }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at center, rgba(201,150,125,0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(232, 184, 75, 0.06) 0%, transparent 70%);
 }
-.hero-content { position: relative; text-align: center; padding: 0 24px; }
+/* Decoração girassol no hero */
+.hero::before {
+  content: '🌻';
+  position: absolute;
+  right: 5%;
+  top: 10%;
+  font-size: clamp(8rem, 15vw, 14rem);
+  opacity: 0.08;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero::after {
+  content: '🌻';
+  position: absolute;
+  left: 3%;
+  bottom: 15%;
+  font-size: clamp(5rem, 10vw, 9rem);
+  opacity: 0.06;
+  animation: float 8s ease-in-out infinite reverse;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(-5deg); }
+  50%       { transform: translateY(-16px) rotate(5deg); }
+}
+.hero-content { position: relative; text-align: center; padding: 0 24px; z-index: 1; }
 .hero-subtitle {
-  font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--rose-gold-light); margin-bottom: 16px;
+  font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold-medium); margin-bottom: 16px;
 }
 .hero-names {
   font-size: clamp(4rem, 10vw, 7.5rem);
-  color: var(--white); font-weight: 400; line-height: 1.1; margin-bottom: 20px;
+  color: var(--text-dark); font-weight: 400; line-height: 1.1; margin-bottom: 20px;
 }
 .hero-ampersand {
-  display: block; font-size: 0.45em; color: var(--rose-gold-light); margin: 4px 0;
+  display: block; font-size: 0.45em; color: var(--gold); margin: 4px 0;
 }
 .hero-divider {
   width: 120px; height: 1px; margin: 0 auto 20px;
-  background: linear-gradient(to right, transparent, var(--rose-gold), transparent);
+  background: linear-gradient(to right, transparent, var(--gold-light), transparent);
 }
 .hero-date {
   font-family: var(--font-serif); font-size: clamp(1.2rem, 3vw, 1.8rem);
-  color: rgba(255,255,255,0.6); letter-spacing: 0.3em;
+  color: var(--text-medium); letter-spacing: 0.3em;
 }
 .hero-scroll {
   position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
   font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: rgba(255,255,255,0.3); animation: bounce 2s infinite;
+  color: var(--text-light); animation: bounce 2s infinite;
 }
 @keyframes bounce {
   0%,100% { transform: translateX(-50%) translateY(0); }
@@ -625,27 +651,37 @@ async function confirmarPresente() {
 
 /* ─── Countdown ─────────────────── */
 .countdown-section {
-  background: var(--champagne); padding: 56px 24px; text-align: center;
+  background: linear-gradient(135deg, var(--sun-600), var(--gold-medium), var(--sun-700));
+  padding: 56px 24px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.countdown-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('/sunflower_bg.png') center/cover no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
 }
 .countdown-label {
-  font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--rose-gold-dark); font-weight: 500; margin-bottom: 28px;
+  font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.85); font-weight: 600; margin-bottom: 28px; position: relative;
 }
 .countdown-grid {
   display: flex; align-items: center; justify-content: center; gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; position: relative;
 }
 .countdown-item { text-align: center; min-width: 64px; }
 .countdown-number {
   font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem);
-  color: var(--rose-gold-dark); font-weight: 500; line-height: 1;
+  color: var(--white); font-weight: 600; line-height: 1;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
 .countdown-unit {
-  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--text-light); margin-top: 6px;
+  font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7); margin-top: 6px;
 }
 .countdown-separator {
-  font-size: 2rem; color: var(--rose-gold-light); line-height: 1; padding-bottom: 20px;
+  font-size: 2rem; color: rgba(255,255,255,0.5); line-height: 1; padding-bottom: 20px;
 }
 
 /* ─── História ──────────────────── */
@@ -749,8 +785,16 @@ async function confirmarPresente() {
 
 /* ─── Galeria ───────────────────── */
 .galeria-section {
-  background: linear-gradient(135deg, #1a1108, #2d1a0d, #1a1108);
+  background: linear-gradient(160deg, var(--warm-darker) 0%, #2d2010 50%, var(--warm-dark) 100%);
   padding: 100px 24px;
+  position: relative; overflow: hidden;
+}
+.galeria-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('/sunflower_bg.png') center/cover no-repeat;
+  opacity: 0.04;
+  pointer-events: none;
 }
 .galeria-grid {
   max-width: 1200px; margin: 0 auto;
@@ -801,47 +845,69 @@ async function confirmarPresente() {
 
 /* ─── RSVP ──────────────────────── */
 .rsvp-section {
-  background: linear-gradient(135deg, #1a1108, #2d1a0d);
+  background: linear-gradient(160deg, var(--sun-100) 0%, var(--cream-300) 50%, var(--sun-200) 100%);
   padding: 100px 24px;
+  position: relative; overflow: hidden;
 }
-.rsvp-section .section-title { color: var(--white); }
+.rsvp-section::before {
+  content: '🌻';
+  position: absolute;
+  right: 5%;
+  top: 10%;
+  font-size: 18rem;
+  opacity: 0.05;
+  pointer-events: none;
+  transform: rotate(20deg);
+}
+.rsvp-section .section-title { color: var(--text-dark); }
 .rsvp-form {
   max-width: 560px; margin: 0 auto;
-  background: rgba(255,255,255,0.04); backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-xl);
-  padding: 40px;
+  background: rgba(255, 253, 240, 0.90); backdrop-filter: blur(20px);
+  border: 1px solid var(--border-gold); border-radius: var(--radius-xl);
+  padding: 40px; box-shadow: var(--shadow-card);
+  position: relative;
 }
-.rsvp-form .form-group label { color: rgba(255,255,255,0.5); }
+.rsvp-form .form-group label { color: var(--text-medium); }
 .rsvp-form input, .rsvp-form select, .rsvp-form textarea {
-  background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); color: white;
+  background: var(--bg-card); border-color: var(--border-medium); color: var(--text-dark);
 }
-.rsvp-form input::placeholder { color: rgba(255,255,255,0.25); }
-.rsvp-form select option { background: #1a1108; }
+.rsvp-form input::placeholder { color: var(--text-light); }
+.rsvp-form select option { background: var(--bg-card); color: var(--text-dark); }
 .rsvp-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .rsvp-choice {
-  padding: 12px; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-sm);
-  color: rgba(255,255,255,0.5); font-size: 0.85rem; text-align: center; cursor: pointer;
-  transition: var(--transition);
+  padding: 12px; border: 1.5px solid var(--border-medium); border-radius: var(--radius-sm);
+  color: var(--text-medium); font-size: 0.85rem; text-align: center; cursor: pointer;
+  transition: var(--transition); background: var(--bg-card);
 }
-.rsvp-choice.active { border-color: var(--rose-gold); color: var(--rose-gold-light); background: rgba(201,150,125,0.1); }
+.rsvp-choice.active { border-color: var(--gold-light); color: var(--gold); background: var(--gold-pale); }
 .rsvp-btn { width: 100%; margin-top: 8px; justify-content: center; }
 .rsvp-success { text-align: center; padding: 20px; }
 .rsvp-success-icon { font-size: 3rem; margin-bottom: 16px; }
-.rsvp-success h3 { font-size: 2.5rem; color: var(--rose-gold-light); margin-bottom: 12px; }
-.rsvp-success p { color: rgba(255,255,255,0.5); line-height: 1.7; }
+.rsvp-success h3 { font-size: 2.5rem; color: var(--gold); margin-bottom: 12px; }
+.rsvp-success p { color: var(--text-medium); line-height: 1.7; }
 
 /* ─── Footer ────────────────────── */
 .footer {
-  background: var(--bg-dark-2); padding: 60px 24px;
-  text-align: center; border-top: 1px solid rgba(255,255,255,0.05);
+  background: linear-gradient(160deg, var(--warm-darker), #2a1e0e);
+  padding: 60px 24px;
+  text-align: center;
+  border-top: 2px solid rgba(232, 184, 75, 0.2);
+  position: relative; overflow: hidden;
 }
-.footer-names { font-size: 2rem; color: var(--rose-gold-light); margin-bottom: 8px; }
-.footer-date  { font-size: 0.75rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.3); margin-bottom: 28px; }
-.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin-bottom: 28px; }
-.footer-links a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); transition: var(--transition); text-decoration: none; }
-.footer-links a:hover { color: var(--rose-gold-light); }
-.footer-heart { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
-.footer-heart span { color: var(--rose-gold); }
+.footer::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('/sunflower_bg.png') center/cover no-repeat;
+  opacity: 0.04;
+  pointer-events: none;
+}
+.footer-names { font-size: 2rem; color: var(--gold-light); margin-bottom: 8px; position: relative; }
+.footer-date  { font-size: 0.75rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.35); margin-bottom: 28px; position: relative; }
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin-bottom: 28px; position: relative; }
+.footer-links a { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); transition: var(--transition); text-decoration: none; }
+.footer-links a:hover { color: var(--gold-light); }
+.footer-heart { font-size: 0.8rem; color: rgba(255,255,255,0.28); position: relative; }
+.footer-heart span { color: var(--gold-light); }
 
 /* ─── Modal Presente ────────────── */
 .modal-overlay {

@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="sidebar-header">
       <div class="sidebar-brand">
-        <span class="brand-icon">💍</span>
+        <span class="brand-icon">🌻</span>
         <div>
           <div class="brand-name">VouCasar</div>
           <div class="brand-sub">Painel dos Noivos</div>
@@ -109,7 +109,7 @@ async function handleLogout() {
 .brand-name {
   font-family: var(--font-serif);
   font-size: 1.1rem;
-  color: var(--rose-gold-light);
+  color: var(--gold-light);
   font-weight: 600;
 }
 .brand-sub {
@@ -157,15 +157,15 @@ async function handleLogout() {
   color: var(--admin-text);
 }
 .sidebar-link.router-link-active {
-  background: rgba(201, 150, 125, 0.12);
-  color: var(--rose-gold-light);
+  background: rgba(232, 184, 75, 0.12);
+  color: var(--gold-light);
 }
 .sidebar-icon {
   font-size: 1rem;
 }
 .sidebar-badge {
   margin-left: auto;
-  background: var(--rose-gold);
+  background: var(--gold);
   color: white;
   font-size: 0.65rem;
   font-weight: 700;
@@ -194,7 +194,7 @@ async function handleLogout() {
   width: 100%;
   text-align: left;
 }
-.sidebar-footer-link:hover { color: var(--rose-gold-light); background: rgba(255,255,255,0.04); }
+.sidebar-footer-link:hover { color: var(--gold-light); background: rgba(255,255,255,0.04); }
 .sidebar-logout-btn:hover  { color: #ef4444; background: rgba(239,68,68,0.08); }
 
 .sidebar-overlay {

@@ -89,7 +89,7 @@ const subtitle = computed(() => current.value.subtitle)
 .topbar-user-avatar {
   width: 36px;
   height: 36px;
-  background: rgba(201,150,125,0.12);
+  background: rgba(232, 184, 75, 0.15);
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;

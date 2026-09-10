@@ -138,7 +138,7 @@ const ultimasConf        = (ultimasConfRaw ?? []) as UltimaConf[]
 const mensagensPendentes = (pendentes.data ?? []) as MsgPendente[]
 
 // Calcular dias restantes
-const weddingDate = new Date('2025-04-12T17:00:00')
+const weddingDate = new Date('2027-06-19T17:30:00')
 const today = new Date()
 const diffDays = Math.ceil((weddingDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
 
@@ -171,7 +171,7 @@ const stats = {
   transition: var(--transition);
 }
 .stat-card:hover {
-  border-color: rgba(201,150,125,0.2);
+  border-color: rgba(232, 184, 75, 0.25);
   transform: translateY(-2px);
 }
 .stat-icon {
@@ -222,11 +222,11 @@ const stats = {
 }
 .admin-card-action {
   font-size: 0.75rem;
-  color: var(--rose-gold-light);
+  color: var(--gold-light);
   text-decoration: none;
   transition: var(--transition);
 }
-.admin-card-action:hover { color: var(--rose-gold); }
+.admin-card-action:hover { color: var(--gold); }
 .admin-card-body {
   padding: 16px 20px;
   display: flex;
@@ -306,8 +306,8 @@ const stats = {
   cursor: pointer;
 }
 .quick-btn:hover {
-  background: rgba(201,150,125,0.1);
-  border-color: rgba(201,150,125,0.3);
-  color: var(--rose-gold-light);
+  background: rgba(232, 184, 75, 0.08);
+  border-color: rgba(232, 184, 75, 0.30);
+  color: var(--gold-light);
 }
 </style>
