@@ -24,19 +24,19 @@ export type Database = {
           id: number; created_at: string; nome: string; descricao: string | null;
           categoria: string; valor: number; imagem_url: string | null;
           reservado: boolean; reservado_por: string | null; reservado_at: string | null;
-          ativo: boolean; ordem: number
+          ativo: boolean; ordem: number; link_pagamento: string | null
         }
         Insert: {
           id?: number; created_at?: string; nome: string; descricao?: string | null;
           categoria?: string; valor: number; imagem_url?: string | null;
           reservado?: boolean; reservado_por?: string | null; reservado_at?: string | null;
-          ativo?: boolean; ordem?: number
+          ativo?: boolean; ordem?: number; link_pagamento?: string | null
         }
         Update: {
           id?: number; created_at?: string; nome?: string; descricao?: string | null;
           categoria?: string; valor?: number; imagem_url?: string | null;
           reservado?: boolean; reservado_por?: string | null; reservado_at?: string | null;
-          ativo?: boolean; ordem?: number
+          ativo?: boolean; ordem?: number; link_pagamento?: string | null
         }
       }
       vc_contribuicoes: {

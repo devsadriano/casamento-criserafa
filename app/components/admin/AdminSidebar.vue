@@ -21,6 +21,10 @@
       </NuxtLink>
 
       <div class="sidebar-section-label">Conteúdo</div>
+      <NuxtLink to="/admin/historia" class="sidebar-link" @click="sidebarOpen = false">
+        <span class="sidebar-icon">📖</span>
+        Nossa História
+      </NuxtLink>
       <NuxtLink to="/admin/presentes" class="sidebar-link" @click="sidebarOpen = false">
         <span class="sidebar-icon">🎁</span>
         Lista de Presentes
@@ -36,7 +40,7 @@
       </NuxtLink>
       <NuxtLink to="/admin/confirmacoes" class="sidebar-link" @click="sidebarOpen = false">
         <span class="sidebar-icon">✅</span>
-        Confirmações RSVP
+        Confirmações de Presença
       </NuxtLink>
     </nav>
 

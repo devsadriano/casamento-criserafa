@@ -15,7 +15,6 @@
         <li><a href="#presentes" @click="closeMobile">Presentes</a></li>
         <li><a href="#galeria" @click="closeMobile">Galeria</a></li>
         <li><a href="#mural" @click="closeMobile">Mural</a></li>
-        <li><a href="#rsvp" @click="closeMobile">Confirmar Presença</a></li>
       </ul>
       <button class="navbar-menu-btn" @click="mobileOpen = !mobileOpen" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -30,7 +29,6 @@
       <a href="#presentes" @click="closeMobile">Presentes</a>
       <a href="#galeria"  @click="closeMobile">Galeria</a>
       <a href="#mural"    @click="closeMobile">Mural</a>
-      <a href="#rsvp"     @click="closeMobile">Confirmar Presença</a>
     </nav>
 
     <!-- HERO -->
@@ -143,7 +141,7 @@
         </button>
       </div>
       <div class="presentes-grid">
-        <div v-for="p in presentesFiltrados" :key="p.id" class="presente-card reveal" :class="{ reservado: p.reservado }" @click="!p.reservado && openPresenteModal(p)">
+        <div v-for="p in presentesFiltrados" :key="p.id" class="presente-card reveal" @click="openPresenteModal(p)">
           <div class="presente-img">
             <img v-if="p.imagem_url" :src="p.imagem_url" :alt="p.nome" />
             <div v-else class="presente-img-placeholder">🎁</div>
@@ -152,8 +150,7 @@
             <div class="presente-cat">{{ p.categoria }}</div>
             <div class="presente-nome">{{ p.nome }}</div>
             <div class="presente-valor">{{ formatMoney(p.valor) }}</div>
-            <div v-if="p.reservado" class="presente-reservado">💝 Já reservado</div>
-            <button v-else class="presente-btn">Presentear ✨</button>
+            <button class="presente-btn">Presentear ✨</button>
           </div>
         </div>
       </div>
@@ -230,71 +227,6 @@
       </div>
     </section>
 
-    <!-- RSVP -->
-    <section class="rsvp-section" id="rsvp">
-      <div class="section-header reveal">
-        <span class="section-tag" style="color:var(--gold-light)">✦ Confirmação</span>
-        <h2 class="section-title font-script">Confirmar Presença</h2>
-        <div class="section-divider"><span class="section-divider-icon">🥂</span></div>
-        <p class="section-sub" style="color:rgba(255,255,255,0.5)">Por favor, confirme sua presença até <strong style="color:var(--rose-gold-light)">28 de Março de 2025</strong></p>
-      </div>
-
-      <div class="rsvp-form reveal">
-        <div v-if="!rsvpDone">
-          <form @submit.prevent="enviarRsvp">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="rsvpNome">Nome Completo *</label>
-                <input id="rsvpNome" v-model="rsvpForm.nome" type="text" placeholder="Seu nome" required />
-              </div>
-              <div class="form-group">
-                <label for="rsvpEmail">E-mail *</label>
-                <input id="rsvpEmail" v-model="rsvpForm.email" type="email" placeholder="seu@email.com" required />
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Você vai comparecer?</label>
-              <div class="rsvp-choices">
-                <label class="rsvp-choice" :class="{ active: rsvpForm.confirmacao === 'sim' }">
-                  <input type="radio" v-model="rsvpForm.confirmacao" value="sim" style="display:none" />
-                  ✓ Sim, confirmo!
-                </label>
-                <label class="rsvp-choice" :class="{ active: rsvpForm.confirmacao === 'nao' }">
-                  <input type="radio" v-model="rsvpForm.confirmacao" value="nao" style="display:none" />
-                  ✗ Não poderei ir
-                </label>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="rsvpAcomp">Acompanhantes</label>
-                <select id="rsvpAcomp" v-model="rsvpForm.acompanhantes">
-                  <option value="0">Somente eu</option>
-                  <option value="1">+ 1 acompanhante</option>
-                  <option value="2">+ 2 acompanhantes</option>
-                  <option value="3">+ 3 acompanhantes</option>
-                  <option value="4">+ 4 ou mais</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="rsvpRestricao">Restrição alimentar</label>
-                <input id="rsvpRestricao" v-model="rsvpForm.restricao" type="text" placeholder="Ex: vegetariano, glúten..." />
-              </div>
-            </div>
-            <button type="submit" class="btn-primary rsvp-btn" :disabled="rsvpLoading">
-              {{ rsvpLoading ? 'Enviando...' : '🥂 Confirmar Presença' }}
-            </button>
-          </form>
-        </div>
-        <div v-else class="rsvp-success">
-          <div class="rsvp-success-icon">🎉</div>
-          <h3 class="font-script">Que alegria!</h3>
-          <p>Sua presença foi confirmada com sucesso!<br>Mal podemos esperar para celebrar com você. 💍</p>
-          <a href="#presentes" class="btn-secondary" style="margin-top:16px">Ver Lista de Presentes</a>
-        </div>
-      </div>
-    </section>
-
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-names font-script">Cristina & Rafael</div>
@@ -312,24 +244,44 @@
 
     <!-- MODAL PRESENTE -->
     <Teleport to="body">
-      <div v-if="presenteModalOpen" class="modal-overlay" @click.self="presenteModalOpen = false">
+      <div v-if="presenteModalOpen" class="modal-overlay" @click.self="closePresenteModal">
         <div class="modal">
           <div class="modal-header-pub">
-            <button class="modal-close-pub" @click="presenteModalOpen = false">✕</button>
-            <div class="modal-header-title font-script">Presentear com Amor</div>
-            <div class="modal-header-sub">✦ Lista de Presentes ✦</div>
+            <button class="modal-close-pub" @click="closePresenteModal">✕</button>
+            <div class="modal-header-title font-script">{{ presenteSuccess ? 'Muito Obrigado!' : 'Presentear com Amor' }}</div>
+            <div class="modal-header-sub">✦ {{ presenteSuccess ? 'Gesto de Carinho' : 'Lista de Presentes' }} ✦</div>
           </div>
-          <div class="modal-body-pub">
+
+          <!-- Form View -->
+          <div v-if="!presenteSuccess" class="modal-body-pub">
             <img v-if="presenteSelecionado?.imagem_url" class="modal-gift-img" :src="presenteSelecionado.imagem_url" :alt="presenteSelecionado.nome" />
             <div v-else class="modal-gift-placeholder">🎁</div>
             <h3 class="modal-gift-name font-serif">{{ presenteSelecionado?.nome }}</h3>
             <div class="modal-gift-price">{{ formatMoney(presenteSelecionado?.valor) }}</div>
             <div class="form-group">
               <label for="contribNome">Seu Nome *</label>
-              <input id="contribNome" v-model="contribNome" type="text" placeholder="Como você quer ser lembrado(a)?" />
+              <input id="contribNome" v-model="contribNome" type="text" placeholder="Como você quer ser lembrado(a)?" required />
             </div>
-            <p class="modal-gift-msg">🔒 O pagamento será processado com segurança.<br>Aceitamos PIX, cartão de crédito e boleto.</p>
-            <button class="modal-btn-pay" @click="confirmarPresente">💝 Presentear com Amor</button>
+            <p class="modal-gift-msg">🔒 O presente será registrado em seu nome.<br>Agradecemos imensamente por esse carinho!</p>
+            <button class="modal-btn-pay" :disabled="contribLoading || !contribNome.trim()" @click="confirmarPresente">
+              <span>{{ contribLoading ? 'Confirmando...' : (presenteSelecionado?.link_pagamento ? '💳 Ir para o Pagamento ↗' : '💝 Presentear com Amor') }}</span>
+            </button>
+          </div>
+
+          <!-- Success View -->
+          <div v-else class="modal-success-pub">
+            <div class="modal-success-icon">💐</div>
+            <h3 class="modal-success-title font-script">Que presente especial!</h3>
+            <p class="modal-success-text">
+              Muito obrigado(a), <strong>{{ contribNome }}</strong>! <br>
+              Seu presente <strong>"{{ presenteSelecionado?.nome }}"</strong> foi registrado com muito carinho para o casal. 💍✨
+            </p>
+            <a v-if="presenteSelecionado?.link_pagamento" :href="presenteSelecionado.link_pagamento" target="_blank" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 12px; font-weight: 600; text-decoration: none;">
+              <span>💳 Acessar Link de Pagamento ↗</span>
+            </a>
+            <button class="btn-primary" style="width: 100%; justify-content: center; margin-top: 8px;" @click="closePresenteModal">
+              <span>💖 Concluir</span>
+            </button>
           </div>
         </div>
       </div>
@@ -368,8 +320,21 @@ const [{ data: historiaRaw }, { data: presentesRaw }, { data: galeriaRaw }, { da
   (client.from('vc_mensagens') as any).select('id,nome,relacao,mensagem,created_at').eq('aprovada', true).order('created_at', { ascending: false }).limit(20),
 ])
 
+function parseGift(p: any) {
+  let link = p.link_pagamento || ''
+  let desc = p.descricao || ''
+  if (!link && desc.includes('[LINK:')) {
+    const match = desc.match(/\[LINK:\s*(.*?)\]/)
+    if (match) {
+      link = match[1].trim()
+      desc = desc.replace(/\[LINK:\s*.*?\]/, '').trim()
+    }
+  }
+  return { ...p, descricao: desc, link_pagamento: link }
+}
+
 const historia  = (historiaRaw  ?? []) as any[]
-const presentes = (presentesRaw ?? []) as any[]
+const presentes = (presentesRaw ?? []).map(parseGift) as any[]
 const galeria   = (galeriaRaw   ?? []) as any[]
 const mensagens = (mensagensRaw ?? []) as any[]
 
@@ -394,22 +359,30 @@ const presentesFiltrados = computed(() =>
 const presenteModalOpen   = ref(false)
 const presenteSelecionado = ref<any>(null)
 const contribNome         = ref('')
+const contribLoading      = ref(false)
+const presenteSuccess     = ref(false)
 
 // Mural
 const muralForm    = reactive({ nome: '', relacao: '', mensagem: '' })
 const muralLoading = ref(false)
 const muralSuccess = ref(false)
 
-// RSVP
-const rsvpForm    = reactive({ nome: '', email: '', confirmacao: 'sim', acompanhantes: '0', restricao: '' })
-const rsvpLoading = ref(false)
-const rsvpDone    = ref(false)
-
 // Lightbox
 const lightboxUrl = ref('')
 
 // ─── Lifecycle ───────────────────────────────────────
 onMounted(() => {
+  // Garante que ao recarregar ou entrar na página ela comece sempre no topo (Hero)
+  if (typeof window !== 'undefined') {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual'
+    }
+    window.scrollTo(0, 0)
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname)
+    }
+  }
+
   // Loader
   setTimeout(() => { loaderHidden.value = true }, 1600)
 
@@ -468,6 +441,13 @@ function openPresenteModal(p: any) {
   presenteSelecionado.value = p
   presenteModalOpen.value = true
   contribNome.value = ''
+  presenteSuccess.value = false
+  contribLoading.value = false
+}
+
+function closePresenteModal() {
+  presenteModalOpen.value = false
+  presenteSuccess.value = false
 }
 
 // ─── Actions ─────────────────────────────────────────
@@ -487,32 +467,25 @@ async function enviarMensagem() {
   }
 }
 
-async function enviarRsvp() {
-  rsvpLoading.value = true
-  try {
-    await (client.from('vc_confirmacoes') as any).insert({
-      nome:               rsvpForm.nome,
-      email:              rsvpForm.email,
-      confirmacao:        rsvpForm.confirmacao,
-      acompanhantes:      Number(rsvpForm.acompanhantes),
-      restricao_alimentar: rsvpForm.restricao || null,
-    })
-    rsvpDone.value = true
-  } finally {
-    rsvpLoading.value = false
-  }
-}
-
 async function confirmarPresente() {
-  if (!contribNome.value) return
-  await (client.from('vc_contribuicoes') as any).insert({
-    presente_id:      presenteSelecionado.value.id,
-    nome_contribuidor: contribNome.value,
-    valor_contribuido: presenteSelecionado.value.valor,
-  })
-  await (client.from('vc_presentes') as any).update({ reservado: true, reservado_por: contribNome.value, reservado_at: new Date().toISOString() }).eq('id', presenteSelecionado.value.id)
-  presenteModalOpen.value = false
-  alert('💝 Obrigado! Seu presente foi registrado com muito amor!')
+  if (!contribNome.value.trim() || contribLoading.value) return
+  contribLoading.value = true
+  try {
+    await (client.from('vc_contribuicoes') as any).insert({
+      presente_id:      presenteSelecionado.value.id,
+      nome_contribuidor: contribNome.value.trim(),
+      valor_contribuido: presenteSelecionado.value.valor,
+    })
+
+    presenteSuccess.value = true
+    if (presenteSelecionado.value?.link_pagamento) {
+      window.open(presenteSelecionado.value.link_pagamento, '_blank')
+    }
+  } catch (e) {
+    console.error('Erro ao confirmar presente:', e)
+  } finally {
+    contribLoading.value = false
+  }
 }
 </script>
 
@@ -685,17 +658,20 @@ async function confirmarPresente() {
 }
 
 /* ─── História ──────────────────── */
-.historia-section { padding: 100px 24px; max-width: 900px; margin: 0 auto; }
+.historia-section { padding: 80px 24px; max-width: 900px; margin: 0 auto; }
 .timeline { position: relative; }
 .timeline::before {
   content: ''; position: absolute;
-  left: 50%; top: 0; bottom: 0; width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--rose-gold-light), transparent);
+  left: 50%; top: 20px; bottom: 20px; width: 1px;
+  background: linear-gradient(to bottom, transparent 0%, var(--gold-light) 15%, var(--gold-light) 85%, transparent 100%);
   transform: translateX(-50%);
 }
 .timeline-item {
   display: grid; grid-template-columns: 1fr 40px 1fr;
-  gap: 24px; align-items: start; margin-bottom: 60px; position: relative;
+  gap: 24px; align-items: start; margin-bottom: 48px; position: relative;
+}
+.timeline-item:last-child {
+  margin-bottom: 0;
 }
 .timeline-item.left .timeline-content { grid-column: 1; text-align: right; }
 .timeline-item.right .timeline-content { grid-column: 3; text-align: left; }
@@ -819,9 +795,11 @@ async function confirmarPresente() {
 .mural-section { padding: 100px 24px; max-width: 1000px; margin: 0 auto; }
 .mural-form {
   background: var(--bg-card); border-radius: var(--radius-lg);
-  border: 1px solid rgba(201,150,125,0.15); padding: 40px;
+  border: 1px solid var(--border-gold); padding: 40px;
   box-shadow: var(--shadow-soft); margin-bottom: 48px;
 }
+.mural-form form { display: flex; flex-direction: column; gap: 16px; }
+.mural-form .btn-primary { margin-top: 8px; align-self: flex-start; }
 .mural-form-title { font-size: 1.4rem; color: var(--text-dark); margin-bottom: 24px; font-weight: 500; }
 .form-success { margin-top: 12px; padding: 12px 16px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); border-radius: var(--radius-sm); font-size: 0.85rem; color: #16a34a; }
 .mural-grid {
@@ -868,6 +846,7 @@ async function confirmarPresente() {
   padding: 40px; box-shadow: var(--shadow-card);
   position: relative;
 }
+.rsvp-form form { display: flex; flex-direction: column; gap: 16px; }
 .rsvp-form .form-group label { color: var(--text-medium); }
 .rsvp-form input, .rsvp-form select, .rsvp-form textarea {
   background: var(--bg-card); border-color: var(--border-medium); color: var(--text-dark);
@@ -881,7 +860,7 @@ async function confirmarPresente() {
   transition: var(--transition); background: var(--bg-card);
 }
 .rsvp-choice.active { border-color: var(--gold-light); color: var(--gold); background: var(--gold-pale); }
-.rsvp-btn { width: 100%; margin-top: 8px; justify-content: center; }
+.rsvp-btn { width: 100%; margin-top: 16px; justify-content: center; }
 .rsvp-success { text-align: center; padding: 20px; }
 .rsvp-success-icon { font-size: 3rem; margin-bottom: 16px; }
 .rsvp-success h3 { font-size: 2.5rem; color: var(--gold); margin-bottom: 12px; }
@@ -912,40 +891,85 @@ async function confirmarPresente() {
 
 /* ─── Modal Presente ────────────── */
 .modal-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  position: fixed; inset: 0; background: rgba(20, 15, 5, 0.75);
   display: flex; align-items: center; justify-content: center;
   z-index: 1000; padding: 16px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
 }
 .modal {
   background: var(--bg-card); border-radius: var(--radius-xl);
   width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto;
   box-shadow: var(--shadow-strong);
+  border: 1px solid var(--border-gold);
 }
 .modal-header-pub {
-  background: linear-gradient(135deg, var(--bg-dark), var(--bg-dark-2));
+  background: linear-gradient(135deg, #1e1b14, #161410);
   padding: 28px 24px; text-align: center; position: relative;
+  border-bottom: 1px solid var(--border-gold);
 }
 .modal-close-pub {
   position: absolute; top: 16px; right: 16px;
-  color: rgba(255,255,255,0.4); font-size: 1rem; transition: var(--transition);
+  color: rgba(255,255,255,0.6); font-size: 1.2rem; transition: var(--transition);
+  background: transparent; border: none; cursor: pointer;
 }
-.modal-close-pub:hover { color: white; }
-.modal-header-title { font-family: var(--font-script); font-size: 1.8rem; color: var(--rose-gold-light); }
-.modal-header-sub { font-size: 0.7rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.3); margin-top: 4px; }
+.modal-close-pub:hover { color: white; transform: scale(1.1); }
+.modal-header-title { font-family: var(--font-script); font-size: 2.2rem; color: var(--gold-warm); }
+.modal-header-sub { font-size: 0.7rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.6); margin-top: 4px; text-transform: uppercase; }
 .modal-body-pub { padding: 28px; display: flex; flex-direction: column; gap: 16px; }
-.modal-gift-img { width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); }
-.modal-gift-placeholder { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 5rem; background: var(--champagne); border-radius: var(--radius-md); }
-.modal-gift-name { font-size: 1.3rem; color: var(--text-dark); font-weight: 500; }
-.modal-gift-price { font-size: 1.5rem; color: var(--rose-gold-dark); font-family: var(--font-serif); font-weight: 600; font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "lnum" 1, "tnum" 1; line-height: 1.2; letter-spacing: 0.02em; }
+.modal-gift-img { width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md); border: 1px solid var(--border-light); }
+.modal-gift-placeholder { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 5rem; background: var(--gold-pale); border-radius: var(--radius-md); }
+.modal-gift-name { font-size: 1.3rem; color: var(--text-dark); font-weight: 500; text-align: center; }
+.modal-gift-price { font-size: 1.6rem; color: var(--gold-medium); font-family: var(--font-serif); font-weight: 600; font-variant-numeric: lining-nums tabular-nums; text-align: center; line-height: 1.2; letter-spacing: 0.02em; }
 .modal-gift-msg { font-size: 0.78rem; color: var(--text-light); line-height: 1.6; text-align: center; }
 .modal-btn-pay {
-  padding: 14px; width: 100%;
-  background: linear-gradient(135deg, var(--rose-gold-dark), var(--rose-gold));
-  color: white; border-radius: var(--radius-full); font-size: 0.95rem; font-weight: 600;
-  transition: var(--transition); cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  width: 100%;
+  background: linear-gradient(135deg, var(--sun-600) 0%, var(--sun-500) 50%, var(--gold-warm) 100%);
+  color: #ffffff !important;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  box-shadow: var(--shadow-gold);
 }
-.modal-btn-pay:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,150,125,0.4); }
+.modal-btn-pay:hover { transform: translateY(-2px); box-shadow: var(--shadow-gold-lg); opacity: 0.95; }
+.modal-btn-pay:active { transform: translateY(0); }
+
+/* ─── Modal Success Card ────────── */
+.modal-success-pub {
+  padding: 40px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: fadeIn 0.4s ease;
+}
+.modal-success-icon {
+  font-size: 4rem;
+  line-height: 1;
+  animation: bounce 2s ease infinite;
+}
+.modal-success-title {
+  font-size: 2.4rem;
+  color: var(--gold);
+  line-height: 1.1;
+}
+.modal-success-text {
+  font-size: 0.95rem;
+  color: var(--text-medium);
+  line-height: 1.6;
+}
+.modal-success-text strong {
+  color: var(--text-dark);
+}
 
 /* ─── Lightbox ──────────────────── */
 .lightbox {
